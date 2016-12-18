@@ -1,10 +1,10 @@
-import {Observable} from "rxjs";
+import {Observable,Observer} from "rxjs";
 
 let numbers = [1,5,10];
 
 let source = Observable.from(numbers);
 
-class MyObserver{
+class MyObserver implements Observer<number>{
 	next(v){
 		console.log(`value:${v}`);
 	}
