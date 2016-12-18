@@ -2,7 +2,15 @@ import {Observable,Observer} from "rxjs";
 
 let numbers = [1,5,10];
 
-let source = Observable.from(numbers);
+let source = Observable.create(observer=>{
+	for(let n of numbers){
+		if(n===5){
+			observer.error("wrong")
+		}
+		observer.next(n);
+	}
+	observer.complete();
+})
 
 
 
