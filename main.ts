@@ -4,18 +4,12 @@ let numbers = [1,5,10];
 
 let source = Observable.from(numbers);
 
-class MyObserver implements Observer<number>{
-	next(v){
+
+
+source.subscribe((v)=>{
 		console.log(`value:${v}`);
-	}
-
-	error(e){
+	},(e)=>{
 		console.log(`error ${e}`);
-	}
-
-	complete(){
+	},()=>{
 		console.log("complete");
-	}
-}
-
-source.subscribe(new MyObserver());
+	});
