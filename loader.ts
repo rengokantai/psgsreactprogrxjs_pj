@@ -26,13 +26,13 @@ export function load(url:string){
 //retry(3)
 
 export function loadWithFetch(url:string){
-	return Observable.fromPromise(fetch(url).then(r=>
+	return Observable.fromPromise(fetch(url).then(r=>{
 	if(r.status===200){
 	return r.json()
 }else{
 	return Promise.reject(r);
 }
-	)
+	})
 
 	);
 }
